@@ -1,0 +1,248 @@
+/* BODY */
+body {
+  font-family: sans-serif;
+  font-size: 17px;
+  line-height: 1.5em;
+  margin:0;
+  padding:0;
+}
+
+
+/* IMAGES */
+img {
+  width: 100%;
+}
+
+
+/* TEXTAREA */
+textarea {
+  height: auto;
+}
+
+
+/* CONTAINER */
+.container {
+  margin:auto;
+}
+
+
+/* INPUT */
+input {
+  widht: 90px;
+}
+
+
+/* HEADER */
+#mainHeader {
+  border-bottom:1px solid #464646;
+}
+
+#mainHeader .primary-picture {
+  padding-top: 20px;
+}
+
+
+/* NAVIBAR */
+#naviBar {
+  text-transform: uppercase;
+}
+
+#naviBar li {
+  display: inline;
+  padding-right: 20px;
+  list-style: none;
+}
+
+#naviBar a{
+  text-decoration: none;
+  color:#464646;
+}
+
+#naviBar li.current a, #naviBar a:hover {
+  color:#464646;
+  border-bottom: 3px solid #464646;
+  padding-bottom: 3px;
+}
+
+
+/* BEWERBERPORTAL */
+#bewerberportal {
+  background:url('../images/man.jpg') no-repeat left center, url('../images/woman.jpg') no-repeat right center;;
+  border-bottom: 1px solid #464646;
+  background-size: 50% 100%;
+}
+
+#bewerberportal .row {
+  height: 600px;
+}
+
+#bewerberportal h1 {
+  font-size: 30px;
+  margin:0;
+  padding-bottom: 20px;
+}
+
+#bewerberportal  .bewerberportal-content {
+  background: #464B5F;
+  border-radius: 90px;
+  padding: 40px;
+  opacity: 0.9;
+}
+
+
+/* BEWERBUNGEN */
+#bewerbungen {
+  background: #D0D0D0;
+  flex-direction: column;
+}
+
+#bewerbungen .arrowWithPDF {
+  background: #50566A;
+  padding: 10px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+#bewerbungen .closedBewerber {
+  background: #50566A;
+  padding: 10px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+
+/* IFRAME */
+.framex {
+    width: 100%;
+    height: 800px;
+    border: 0;
+    ms-zoom: 0.75;
+}
+
+
+/* MODAL POPUP */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  border: 1px solid black;
+  border-radius: 10px;
+  z-index: 9999;
+  background-color: white;
+  width: 600px;
+  max-width: 80%;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.modal-header .title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-header .close-button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.modal-body {
+  overflow-y: initial;
+  padding: 10px 15px;
+  height: 350px;
+  overflow-y: auto;
+}
+
+#overlay {
+  position: fixed;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .5);
+  pointer-events: none;
+}
+
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#buttonDaten {
+  align-items: normal;
+  background-color: rgba(0,0,0,0);
+  border-color: rgb(0, 0, 238);
+  border-style: none;
+  box-sizing: content-box;
+  color: rgb(0, 0, 238);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  height: auto;
+  padding: 0;
+  perspective-origin: 0 0;
+  text-align: start;
+  text-decoration: underline;
+  transform-origin: 0 0;
+  width: auto;
+  -moz-appearance: none;
+  -webkit-logical-height: 1em;
+  -webkit-logical-width: auto;
+}
+
+
+/* UNTERNEHMEN */
+#unternehmen {
+  background:#464B5F;
+  color:#fff;
+  padding: 10px 0;
+}
+
+#unternehmen h4 {
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+#unternehmen ul {
+  padding: 0;
+  list-style: none;
+  line-height: 2em;
+}
+
+/* Footer */
+#mainFooter {
+  background: #D0D0D0;
+}
+
+/* MEDIA QUERIES */
+@media(max-width:800px) {
+  #bewerberportal h1{
+    font-size:30px;
+  }
+}
+
+@media(max-width: 500px) {
+  #mainHeader .mainHeader-content {
+    padding: 40px 10px;
+}
