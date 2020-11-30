@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Hochschule Furtwangen University - Karriere</title>
+    <title>HFU Hochschule Furtwangen University - Karriere</title>
       <link rel="stylesheet" href="css/flexboxgrid.css">
       <link rel="stylesheet" href="css/style.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -12,6 +12,11 @@
   <!-- BODY -->
   <body>
     <!-- SCRIPT JAVA -->
+    <script type="text/javascript" src="js/bewerbungsStelleOeffnen.js"></script>
+    <script type="text/javascript" src="js/changeArrow.js"></script>
+    <script defer src="js/getDatenschutzerklaerungsText.js"></script>
+    <script type="text/javascript" src="js/loadFrame.js"></script>
+    <script type="text/javascript" src="js/alertMessages.js"></script>
 
 
     <!-- HEADER -->
@@ -19,7 +24,7 @@
       <div class="container">
         <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
           <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 mainHeader-content">
-            <span class="primary-picture"><img src="images/sslogo.png" alt="No Picture found"></span>
+            <span class="primary-picture"><img src="images/hfulogo.png" alt="No Picture found"></span>
           </div>
           <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
             <nav id="naviBar">
@@ -67,17 +72,16 @@
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <h4>Kontaktieren Sie uns</h4>
             <ul>
-              <li>Telefon: xxxxx</li>
-              <li>Fax: xxx</li>
-              <li>Mobil: xxx</li>
-              <li>Email: xxx@hs-furtwangen.de</li>
-              <li>78120 Furtwangen, Germany</li>
+              <li>Telefon: +xxx</li>
+              <li>Fax: +xxx</li>
+              <li>Mobil: +xxx</li>
+              <li>Email: kontakt@hs-furtwangen.de</li>
+              <li>78120 Furtwagen, Germany</li>
             </ul>
           </div>
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <h4>Über uns</h4>
-            <p>Bla bla bla
-		bla bla
+            <p><br>- Studieren auf höchstem Niveau<br>- Professoren mit Fachübergreifenden Kenntnissen<br>- Und vieles mehr
             </p>
           </div>
         </div>
@@ -89,9 +93,34 @@
       <div class="container">
         <div class="row center-xs center-sm center-md center-lg">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p>&copy; 2021 HFU Hochschule Furtwangen University, All Rights Reserved</p>
+            <p>&copy; 2021 Hochschule Furtwangen University HFU, All Rights Reserved</p>
           </div>
         </div>
       </div>
     </footer>
+
+
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="title">Datenschutzerklärung</div>
+        <button type="button" data-close-button class="close-button">&times;</button>
+      </div>
+      <div class="modal-body" id="datenschutzText">
+        <pre>
+<!-- HIER KOMMT DATENSCHUTZERKLÄRUNGS MODALTEXT -->
+        </pre>
+      </div>
+    </div>
+    <div id="overlay"></div>
+    <script type="text/javascript">
+    var getArrow = document.querySelectorAll('*[id^="arrow"]');
+    for(i = 0; i < getArrow.length; i++) {
+      getArrow[i].onclick = function() { bewerbungsStelleOeffnen(this.id); };
+    }
+    </script>
+
+  </body>
+  <script type="text/javascript">
+  setTimeout(function() {alertMessage()}, 500);
+</script>
 </html>
