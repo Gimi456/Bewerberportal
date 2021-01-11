@@ -83,7 +83,7 @@ input {
 }
 
 #bewerberportal  .bewerberportal-content {
-  background: #464B5F;
+  background: #FFFFFF;
   border-radius: 90px;
   padding: 40px;
   opacity: 0.9;
@@ -92,19 +92,19 @@ input {
 
 /* BEWERBUNGEN */
 #bewerbungen {
-  background: #D0D0D0;
+  background: #FFFFFF;
   flex-direction: column;
 }
 
 #bewerbungen .arrowWithPDF {
-  background: #50566A;
+  background: #03B16C;
   padding: 10px;
   opacity: 0.9;
   margin-bottom: 20px;
 }
 
 #bewerbungen .closedBewerber {
-  background: #50566A;
+  background: #03B16C;
   padding: 10px;
   opacity: 0.9;
   margin-bottom: 40px;
@@ -214,8 +214,8 @@ input {
 
 /* UNTERNEHMEN */
 #unternehmen {
-  background:#464B5F;
-  color:#fff;
+  background:#D0D0D0;
+  color:#000;
   padding: 10px 0;
 }
 
@@ -232,7 +232,7 @@ input {
 
 /* Footer */
 #mainFooter {
-  background: #D0D0D0;
+  background: #FFFFFF;
 }
 
 /* MEDIA QUERIES */
