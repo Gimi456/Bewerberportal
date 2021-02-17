@@ -1,4 +1,5 @@
 <?php
+require 'connectToDB.php';
 if(isset($_POST['submit'])) {
   $name = $_POST['name'];
   $vorName = $_POST['vorname'];
@@ -61,6 +62,7 @@ if(isset($_POST['submit'])) {
                       move_uploaded_file($fileTmpName, '../uploads/'.$bewerbung.'/'.$name.$vorName.$telefonNummer.'/'.$fileName);
                       $current = $name.PHP_EOL.$vorName.PHP_EOL.$emailAdresse.PHP_EOL.$telefonNummer.PHP_EOL.$bewerbung;
                       file_put_contents('../uploads/'.$bewerbung.'/'.$name.$vorName.$telefonNummer.'/Personalien.txt', $current);
+                      beziehungsTabelleBewerberStelle($bewerbung, $emailAdresse);
                       header("Location: ../bewerberportal.html?absenden=bewerbungerfolgreich");
                     }
                   }
@@ -75,6 +77,23 @@ if(isset($_POST['submit'])) {
 } else {
   header("Location: ../bewerberportal.html");
   exit();
+}
+
+function beziehungsTabelleBewerberStelle($fileName, $email) {
+  $connection = openConnection();
+  $email = mysqli_real_escape_string($connection, $email);
+  $fileName = mysqli_real_escape_string($connection, $fileName);
+  $query = "SELECT * FROM `accounts` WHERE `benutzeremail`='$email'";
+  $results = mysqli_query($connection, $query);
+
+  if(mysqli_num_rows($results) == 1) {
+    $insert_query = "INSERT INTO `bewerbungen` (`accountId`, `stellenangeboteId`)
+    VALUES ((SELECT id FROM accounts WHERE benutzeremail = '$email'),
+    (SELECT idStellenangebot FROM stellenangebote WHERE stellenangebot = '$fileName'))";
+
+    mysqli_query($connection, $insert_query) or die(mysqli_error($connection));
+  }
+  closeConnection($connection);
 }
 
 ?>
