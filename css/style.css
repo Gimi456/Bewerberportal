@@ -72,17 +72,29 @@ input {
   background-size: 50% 100%;
 }
 
-#bewerberportal .row {
+#bewerberportal2 {
+  background:url('../images/login.png') repeat left center;
+  border-bottom: 1px solid #464646;
+  background-size: 50% 100%;
+}
+
+#bewerberportal3 {
+  background:url('../images/register.png') repeat left center;
+  border-bottom: 1px solid #464646;
+  background-size: 50% 100%;
+}
+
+#bewerberportal .row, #bewerberportal2 .row, #bewerberportal3 .row{
   height: 600px;
 }
 
-#bewerberportal h1 {
+#bewerberportal h1, #bewerberportal2 h1, #bewerberportal3 h1{
   font-size: 30px;
   margin:0;
   padding-bottom: 20px;
 }
 
-#bewerberportal  .bewerberportal-content {
+#bewerberportal  .bewerberportal-content, #bewerberportal2 .bewerberportal-content, #bewerberportal3 .bewerberportal-content  {
   background: #FFFFFF;
   border-radius: 90px;
   padding: 40px;
