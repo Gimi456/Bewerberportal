@@ -1,3 +1,5 @@
+<?php include('php/registrierenAndLogin.php') ?>
+<?php include('php/logout.php'); logout(); ?>
 <!DOCTYPE html>
 <!-- HTML -->
 <html lang="en" dir="ltr">
@@ -24,13 +26,19 @@
       <div class="container">
         <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
           <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 mainHeader-content">
-            <span class="primary-picture"><img src="images/hfulogo.png" alt="No Picture found"></span>
+            <a href="bewerberportal.html"><span class="primary-picture"><img src="images/hfulogo.png" alt="No Picture found"></span></a>
           </div>
           <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
             <nav id="naviBar">
               <ul>
-                <li><a href="../index.html">Startseite</a></li>
+                <li><a href="https://www.hs-furtwangen.de">Startseite</a></li>
                 <li class="current"><a href="bewerberportal.html">Karriere</a></li>
+                <?php if(isset($_SESSION['erfolgreich'])) : ?>
+                  <li><a href="login.html?logout=1">Abmelden</a></li>
+                <?php endif ?>
+                <?php if(!$_SESSION['erfolgreich']) : ?>
+                  <li><a href="login.html">Login</a></li>
+                <?php endif ?>
               </ul>
             </nav>
           </div>
@@ -55,6 +63,18 @@
         <div class="row center-xs center-sm center-md center-lg">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h2>Stellenangebote</h2>
+              <div class="row center-xs center-sm center-md center-lg">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  Anzahl Stellenangebote: <p id="anzahlStellen" style="display:inline"></p>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  Standort:
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                  Bereich:
+                </div>
+              </div>
+            <br>
             <div class="row center-xs center-sm center-md center-lg">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <?php include('php/scanneStellenangebotsOrdner.php'); scanneStellenangebotsOrdner(); ?>
@@ -212,10 +232,10 @@ dem Betreff "Datenschutz".
     for(i = 0; i < getArrow.length; i++) {
       getArrow[i].onclick = function() { bewerbungsStelleOeffnen(this.id); };
     }
+    document.getElementById("anzahlStellen").innerHTML = getArrow.length;
     </script>
-
   </body>
   <script type="text/javascript">
-  setTimeout(function() {alertMessage()}, 500);
-</script>
+    setTimeout(function() {alertMessage()}, 500);
+  </script>
 </html>
