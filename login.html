@@ -1,0 +1,116 @@
+<?php include('php/registrierenAndLogin.php') ?>
+<?php include('php/logout.php'); logout(); ?>
+<!DOCTYPE html>
+<!-- HTML -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HFU Hochschule Furtwangen University - Karriere</title>
+      <link rel="stylesheet" href="css/flexboxgrid.css">
+      <link rel="stylesheet" href="css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <!-- BODY -->
+  <body>
+    <!-- SCRIPT JAVA -->
+    <script type="text/javascript" src="js/alertMessages.js"></script>
+
+
+    <!-- HEADER -->
+    <header id="mainHeader">
+      <div class="container">
+        <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+          <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2 mainHeader-content">
+            <a href="bewerberportal.html"><span class="primary-picture"><img src="images/hfulogo.png" alt="No Picture found"></span></a>
+          </div>
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+            <nav id="naviBar">
+              <ul>
+                <li><a href="https://www.hs-furtwangen.de">Startseite</a></li>
+                <li><a href="bewerberportal.html">Karriere</a></li>
+                <?php if(isset($_SESSION['erfolgreich'])) : ?>
+                  <li><a href="login.html?logout=1">Abmelden</a></li>
+                <?php endif ?>
+                <?php if(!$_SESSION['erfolgreich']) : ?>
+                  <li class="current"><a href="login.html">Login</a></li>
+                <?php endif ?>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BEWERBERPORTAL -->
+    <section id="bewerberportal2">
+      <div class="container">
+        <div class="row center-xs center-sm center-md center-lg middle-xs middle-sm middle-md middle-lg">
+          <div class="col-xs-10 col-sm-10 col-md-9 col-lg-7 bewerberportal-content">
+            <h1><span class="primary-text">Loggen Sie sich ein. <br>Falls kein Account erstellt worden ist, können Sie sich registrieren.</span></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BEWERBUNGEN -->
+    <section id="bewerbungen">
+      <div class="container">
+        <div class="row center-xs center-sm center-md center-lg">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>Login</h2>
+            <div class="row center-xs center-sm center-md center-lg">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <form action = "php/registrierenAndLogin.php" method = "POST" enctype = "multipart/form-data">
+                  <input type="email" name="emailadresse" placeholder="Emailadresse eingeben">
+                  <br>
+                  <input type="password" id="pass" name="password" placeholder="Passwort eingeben" minlength="8" required>
+                  <br>
+                  <input type="button" value="Registrieren" onclick="location.href = 'registrieren.html';">
+                  <input type="submit" name="login_user" value="Login">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNTERNEHMEN -->
+    <section id="unternehmen">
+      <div class="container">
+        <div class="row center-sm center-md center-lg">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h4>Kontaktieren Sie uns</h4>
+            <ul>
+              <li>Telefon: +07723 920-0</li>
+              <li>Fax: +07723 920-0</li>
+              <li>Mobil: +0173 3456789</li>
+              <li>Email: kontakt@hs-furtwangen.de</li>
+              <li>78120 Furtwangen, Germany</li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <h4>Über uns</h4>
+            <p><br>- Studieren auf höchstem Niveau<br>- Professoren mit fachübergreifenden Kenntnissen<br>- Und vieles mehr
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="mainFooter">
+      <div class="container">
+        <div class="row center-xs center-sm center-md center-lg">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <p>&copy; 2021 Hochschule Furtwangen University HFU, All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script type="text/javascript">
+    setTimeout(function() {alertMessage()}, 500);
+  </script>
+</html>

@@ -14,10 +14,7 @@
   <!-- BODY -->
   <body>
     <!-- SCRIPT JAVA -->
-    <script type="text/javascript" src="js/bewerbungsStelleOeffnen.js"></script>
-    <script type="text/javascript" src="js/changeArrow.js"></script>
     <script defer src="js/getDatenschutzerklaerungsText.js"></script>
-    <script type="text/javascript" src="js/loadFrame.js"></script>
     <script type="text/javascript" src="js/alertMessages.js"></script>
 
 
@@ -32,12 +29,12 @@
             <nav id="naviBar">
               <ul>
                 <li><a href="https://www.hs-furtwangen.de">Startseite</a></li>
-                <li class="current"><a href="bewerberportal.html">Karriere</a></li>
+                <li><a href="bewerberportal.html">Karriere</a></li>
                 <?php if(isset($_SESSION['erfolgreich'])) : ?>
                   <li><a href="login.html?logout=1">Abmelden</a></li>
                 <?php endif ?>
                 <?php if(!$_SESSION['erfolgreich']) : ?>
-                  <li><a href="login.html">Login</a></li>
+                  <li class="current"><a href="login.html">Login</a></li>
                 <?php endif ?>
               </ul>
             </nav>
@@ -47,11 +44,11 @@
     </header>
 
     <!-- BEWERBERPORTAL -->
-    <section id="bewerberportal">
+    <section id="bewerberportal3">
       <div class="container">
         <div class="row center-xs center-sm center-md center-lg middle-xs middle-sm middle-md middle-lg">
           <div class="col-xs-10 col-sm-10 col-md-9 col-lg-7 bewerberportal-content">
-            <h1><span class="primary-text">Hier befindet sich das Bewerberportal.</span></h1>
+            <h1><span class="primary-text">Registrieren sie Sich.</span></h1>
           </div>
         </div>
       </div>
@@ -62,22 +59,25 @@
       <div class="container">
         <div class="row center-xs center-sm center-md center-lg">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h2>Stellenangebote</h2>
-              <div class="row center-xs center-sm center-md center-lg">
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  Anzahl Stellenangebote: <p id="anzahlStellen" style="display:inline"></p>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  Standort:
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  Bereich:
-                </div>
-              </div>
-            <br>
+            <h2>Registration</h2>
             <div class="row center-xs center-sm center-md center-lg">
               <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <?php include('php/scanneStellenangebotsOrdner.php'); scanneStellenangebotsOrdner(); ?>
+                <form action = "php/registrierenAndLogin.php" method = "POST" enctype = "multipart/form-data">
+                  <input type="email" name="emailadresse" placeholder="Emailadresse eingeben" maxlength="40">
+                  <br>
+                  <input type="text" name="name" placeholder="Nachnamen eingeben" maxlength="20">
+                  <br>
+                  <input type="text" name="vorname" placeholder="Vornamen eingeben" maxlength="20">
+                  <br>
+                  <input type="password" id="pass" name="passwordFirst" placeholder="Passwort eingeben" minlength="8" required maxlength="20">
+                  <br>
+                  <input type="password" name="passwordCheckFirst" placeholder="Passwort erneut eingeben" minlength="8" required maxlength="20">
+                  <br>
+                  <input type="checkbox" id="datenschutzErklaerung" name="datenschutzErklaerung">Hiermit bestätige ich die Nutzungsbedingungen des HFU Bewerberportals und erkläre <br>mich mit der
+                  <button type="button" id="buttonDaten" data-modal-target="#modal" onclick="getDatenschutzerklaerungsText();">Datenschutzerklärung</button> einverstanden.</input>
+                  <br>
+                  <input type="submit" name="submit" value="Registrieren">
+                </form>
               </div>
             </div>
           </div>
@@ -227,13 +227,6 @@ dem Betreff "Datenschutz".
       </div>
     </div>
     <div id="overlay"></div>
-    <script type="text/javascript">
-    var getArrow = document.querySelectorAll('*[id^="arrow"]');
-    for(i = 0; i < getArrow.length; i++) {
-      getArrow[i].onclick = function() { bewerbungsStelleOeffnen(this.id); };
-    }
-    document.getElementById("anzahlStellen").innerHTML = getArrow.length;
-    </script>
   </body>
   <script type="text/javascript">
     setTimeout(function() {alertMessage()}, 500);
