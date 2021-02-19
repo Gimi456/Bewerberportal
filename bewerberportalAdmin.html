@@ -12,7 +12,7 @@
   </head>
 
   <!-- BODY -->
-  <body onload="loadSelectionForDelete()">
+  <body onload="loadSelectionForDelete(); loadSelectionForBereichFilter(); loadSelectionForStandortFilter()">
     <!-- SCRIPT JAVA -->
     <script type="text/javascript" src="js/bewerbungsStelleOeffnen.js"></script>
     <script type="text/javascript" src="js/changeArrow.js"></script>
@@ -20,6 +20,8 @@
     <script type="text/javascript" src="js/loadFrame.js"></script>
     <script type="text/javascript" src="js/alertMessages.js"></script>
     <script type="text/javascript" src="js/loadSelections.js"></script>
+    <script type="text/javascript" src="js/filterBereichSelection.js"></script>
+    <script type="text/javascript" src="js/filterStandortSelection.js"></script>
 
 
     <!-- HEADER -->
@@ -70,13 +72,15 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                   <label>Standort:
-                    <select style="display:inline" id="stelleStandort" name="standortName">
+                    <select style="display:inline" id="stelleStandort" name="standortName" onchange="filterDenStandort();">
+                      <option value="all">Alle</option>
                     </select>
                   </label>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                   <label>Bereich:
-                    <select style="display:inline" id="stelleBereich" name="bereichName">
+                    <select style="display:inline" id="stelleBereich" name="bereichName" onchange="filterDenBereich();">
+                      <option value="all">Alle</option>
                     </select>
                   </label>
                 </div>

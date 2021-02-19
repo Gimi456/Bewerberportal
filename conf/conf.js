@@ -11,7 +11,9 @@ exports.config = {
 
   // Spec patterns are relative to the current working directory when
   // protractor is called.
-  specs: ['../tests/autoTest.spec.js', '../tests/nameOrVorNameFalsch.js', '../tests/eMailFalsch.js', '../tests/teleNummerFalsch.js', '../tests/datenSchutzHackenFalse.js', '../tests/dateiFalsch.js', '../tests/alleFelderLeer.js'],
+  specs: ['../tests/autoTest.spec.js', '../tests/nameOrVorNameFalsch.js', '../tests/eMailFalsch.js', '../tests/teleNummerFalsch.js',
+  '../tests/datenSchutzHackenFalse.js', '../tests/dateiFalsch.js', '../tests/alleFelderLeer.js', '../tests/ladeDateiHoch.js',
+  '../tests/loescheDatei.js', '../tests/login.js', '../tests/registrieren.js'],
 
   // Options to be passed to Jasmine.
   jasmineNodeOpts: {

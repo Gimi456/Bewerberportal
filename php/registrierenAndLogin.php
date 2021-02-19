@@ -60,5 +60,6 @@ if(isset($_POST['login_user'])) {
       header('Location: ../login.html?absenden=loginfehlerhaft');
     }
   }
+  closeConnection($connection);
 }
 ?>
